@@ -26,6 +26,6 @@ public class test {
         int i1 = Integer.parseInt(st.nextToken());
         int i2 = Integer.parseInt(st.nextToken());
 
-        return "" + (i1+i2);
+        return "";
     }
 }
