@@ -19,19 +19,26 @@ public class namenum {
     public static String solve(BufferedReader f) throws Exception {
         StringTokenizer st = new StringTokenizer(f.readLine());
 
-        int num = Integer.parseInt(st.nextToken());
+        long num = Long.parseLong(st.nextToken());
         results = new ArrayList<>();
 
-        int quot = num;
-        ArrayList<Integer> number = new ArrayList<>();
+        long quot = num;
+        ArrayList<Long> number = new ArrayList<>();
         while(quot != 0) {
-            int rem = quot % 10;
-            number.add(number.size(), rem);
+            long rem = quot % 10;
+            number.add(0, rem);
             quot = quot/10;
-            System.out.print(rem);
+            //System.out.print(rem);
         }
         rec("", number);
+        for(int i = 0; i < number.size(); ++i) {
+            System.out.print(number.get(i));
+        }
+        System.out.println();
 
+        if(results.size() == 0) {
+            return "NONE";
+        }
         String res = "";
         for(int i = 0; i < results.size(); ++i) {
             res += results.get(i);
@@ -42,12 +49,12 @@ public class namenum {
         return res;
     }
 
-    public static void rec(String soFar, ArrayList<Integer> num) {
-        int val = num.get(0);
-        ArrayList<Integer> rest = new ArrayList<>(num);
+    public static void rec(String soFar, ArrayList<Long> num) {
+        long val = num.get(0);
+        ArrayList<Long> rest = new ArrayList<>(num);
         rest.remove(0);
 
-        char[] chars = getChars(val);
+        char[] chars = getChars((int)val);
         for(char c : chars) {
             if(rest.size() == 0) {
                 String temp = soFar + c;
