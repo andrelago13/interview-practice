@@ -1,14 +1,15 @@
 /*
 ID: asl_mbc2
 LANG: JAVA
-TASK: palsquare
+TASK: dualpal
 */
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class palsquare {
-    public static String PROB = "palsquare";
+public class dualpal {
+    public static String PROB = "dualpal";
     public static String INFILE = PROB + ".in";
     public static String OUTFILE = PROB + ".out";
 
@@ -24,21 +25,36 @@ public class palsquare {
     public static String solve(BufferedReader f) throws Exception {
         StringTokenizer st = new StringTokenizer(f.readLine());
 
-        int base = Integer.parseInt(st.nextToken());
-        //Integer.toString(Integer.parseInt(number, base1), base2);
-        String res = "";
+        int num = Integer.parseInt(st.nextToken());
+        int min = Integer.parseInt(st.nextToken());
+        ArrayList<Integer> results = new ArrayList<>();
 
-        for(int i = 1; i <= 300; ++i) {
-            int square = i*i;
-            String sqr = Integer.toString(square, base).toUpperCase();
-            if(isPal(sqr)) {
-                if(!res.isEmpty()) {
-                    res += '\n';
+        //Integer.toString(Integer.parseInt(number, base1), base2);
+
+        for(int n = min + 1; n < Integer.MAX_VALUE; ++n) {
+            int palCount = 0;
+            for(int base = 2; base <= 10; ++base) {
+                if(isPal(Integer.toString(n, base))) {
+                    palCount++;
+                    if(palCount > 1) {
+                        results.add(n);
+                        break;
+                    }
                 }
-                res += Integer.toString(i, base).toUpperCase() + " " + sqr;
+            }
+            if(results.size() >= num) {
+                break;
             }
         }
 
+
+        String res = "";
+        for(int i = 0; i < results.size(); ++i) {
+            res += results.get(i);
+            if(i < results.size() - 1) {
+                res += '\n';
+            }
+        }
         return res;
     }
 
