@@ -3,18 +3,22 @@ ID: asl_mbc2
 LANG: JAVA
 TASK: test
 */
-import util.Exercise;
 
 import java.io.*;
 import java.util.*;
 
-public class test extends Exercise {
+public class test {
     public static String PROB = "test";
     public static String INFILE = PROB + ".in";
     public static String OUTFILE = PROB + ".out";
 
     public static void main (String [] args) throws Exception {
-        testMain();
+        BufferedReader f = new BufferedReader(new FileReader(INFILE));
+        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(OUTFILE)));
+
+        String result = solve(f);
+        out.println(result);
+        out.close();
     }
 
     public static String solve(BufferedReader f) throws Exception {
