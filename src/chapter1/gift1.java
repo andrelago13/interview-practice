@@ -1,26 +1,23 @@
-/*
+package chapter1;/*
 ID: asl_mbc2
 LANG: JAVA
-TASK: gift1
+TASK: chapter1.gift1
 */
+
+import util.Exercise;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.StringTokenizer;
 
-public class gift1 {
-    public static String PROB = "gift1";
+public class gift1 extends Exercise {
+    public static String PROB = "chapter1.gift1";
     public static String INFILE = PROB + ".in";
     public static String OUTFILE = PROB + ".out";
 
     public static void main (String [] args) throws Exception {
-        BufferedReader f = new BufferedReader(new FileReader(INFILE));
-        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(OUTFILE)));
-
-        String result = solve(f);
-        out.println(result);
-        out.close();
+        testMain();
     }
 
     public static String solve(BufferedReader f) throws Exception {

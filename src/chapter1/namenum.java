@@ -1,15 +1,17 @@
-/*
+package chapter1;/*
 ID: asl_mbc2
 LANG: JAVA
-TASK: namenum
+TASK: chapter1.namenum
 */
+
+import util.Exercise;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class namenum {
-    public static String PROB = "namenum";
+public class namenum extends Exercise {
+    public static String PROB = "chapter1.namenum";
     public static String INFILE = PROB + ".in";
     public static String OUTFILE = PROB + ".out";
 

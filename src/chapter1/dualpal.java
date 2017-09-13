@@ -1,25 +1,22 @@
-/*
+package chapter1;/*
 ID: asl_mbc2
 LANG: JAVA
-TASK: dualpal
+TASK: chapter1.dualpal
 */
+
+import util.Exercise;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class dualpal {
-    public static String PROB = "dualpal";
+public class dualpal extends Exercise {
+    public static String PROB = "chapter1.dualpal";
     public static String INFILE = PROB + ".in";
     public static String OUTFILE = PROB + ".out";
 
     public static void main (String [] args) throws Exception {
-        BufferedReader f = new BufferedReader(new FileReader(INFILE));
-        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(OUTFILE)));
-
-        String result = solve(f);
-        out.println(result);
-        out.close();
+        testMain();
     }
 
     public static String solve(BufferedReader f) throws Exception {

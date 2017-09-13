@@ -1,10 +1,11 @@
-/*
+package chapter1;/*
 ID: asl_mbc2
 LANG: JAVA
-TASK: wormhole
+TASK: chapter1.wormhole
 */
 
 import javafx.util.Pair;
+import util.Exercise;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -16,11 +17,11 @@ import java.util.StringTokenizer;
 /*
  * I couldn't solve this one and got laze, but the idea behind it is to simply test all combinations and check for loops.
  *
- * One can check for loops by doing 12 iterations (max number of wormholes) starting in each possible wormhole and
+ * One can check for loops by doing 12 iterations (max number of wormholes) starting in each possible chapter1.wormhole and
  * checking whether we got to a border (null) or not using the nextRight value.
  */
-public class wormhole {
-    public static String PROB = "wormhole";
+public class wormhole extends Exercise {
+    public static String PROB = "chapter1.wormhole";
     public static String INFILE = PROB + ".in";
     public static String OUTFILE = PROB + ".out";
 
@@ -46,12 +47,7 @@ public class wormhole {
     public static ArrayList<Wormhole> wormholes;
 
     public static void main (String [] args) throws Exception {
-        BufferedReader f = new BufferedReader(new FileReader(INFILE));
-        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(OUTFILE)));
-
-        String result = solve(f);
-        out.println(result);
-        out.close();
+        testMain();
     }
 
     public static String solve(BufferedReader f) throws Exception {

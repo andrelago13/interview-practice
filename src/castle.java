@@ -1,15 +1,16 @@
 /*
 ID: asl_mbc2
 LANG: JAVA
-TASK: test
+TASK: castle
 */
+
 import util.Exercise;
 
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.util.StringTokenizer;
 
-public class test extends Exercise {
-    public static String PROB = "test";
+public class castle extends Exercise {
+    public static String PROB = "castle";
     public static String INFILE = PROB + ".in";
     public static String OUTFILE = PROB + ".out";
 

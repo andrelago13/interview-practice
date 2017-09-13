@@ -1,24 +1,21 @@
-/*
+package chapter1;/*
 ID: asl_mbc2
 LANG: JAVA
-TASK: milk3
+TASK: chapter1.milk3
 */
+
+import util.Exercise;
 
 import java.io.*;
 import java.util.*;
 
-public class milk3 {
-    public static String PROB = "milk3";
+public class milk3 extends Exercise {
+    public static String PROB = "chapter1.milk3";
     public static String INFILE = PROB + ".in";
     public static String OUTFILE = PROB + ".out";
 
     public static void main (String [] args) throws Exception {
-        BufferedReader f = new BufferedReader(new FileReader(INFILE));
-        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(OUTFILE)));
-
-        String result = solve(f);
-        out.println(result);
-        out.close();
+        testMain();
     }
 
     public static class Combo {
