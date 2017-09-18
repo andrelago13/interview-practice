@@ -7,6 +7,10 @@ TASK: frac1
 import java.io.*;
 import java.util.*;
 
+/**
+ * Although this code does not pass the corrector, the logic is the same as the code that passes. I am not sure what the
+ * mistake is, but is likely to be related to I/O (e.g. maybe I shouldn't create the result string that way).
+ */
 public class frac1 {
     public static String PROB = "frac1";
     public static String INFILE = PROB + ".in";
@@ -15,10 +19,12 @@ public class frac1 {
     public static class Frac {
         int num;
         int denum;
+        double val;
 
         public Frac(int num, int denum) {
             this.num = num;
             this.denum = denum;
+            val = ((double) num) / denum;
         }
 
         public String toString() {
@@ -26,12 +32,14 @@ public class frac1 {
         }
 
         public boolean isReductible() {
-            System.out.println("" + num + "/" + denum + " " + lcm(num, denum) + " " + ((num != 1) && (denum != 1) && lcm(num, denum) < Math.min(num, denum)));
-            return (num != 1) && (denum != 1) && lcm(num, denum) < Math.min(num, denum);
+            if(num == 0)
+                return denum > 1;
+            long gcd = gcd(num, denum);
+            return (num != 1) && (denum != 1) && gcd > 1;
         }
 
         public double value() {
-            return ((double) num) / ((double) denum);
+            return val;
         }
 
         public static Comparator<Frac> comp = new Comparator<Frac>() {
@@ -69,18 +77,18 @@ public class frac1 {
 
         int max = Integer.parseInt(st.nextToken());
         ArrayList<Frac> result = new ArrayList<>();
-        HashSet<Double> values = new HashSet<>();
 
-        for(int num = 0; num <= max; ++num) {
-            for(int denum = 1; denum <= max; ++denum) {
-                Frac frac = new Frac(num, denum);
-                double val = frac.value();
-                if(!values.contains(val) && val <= 1) {
-                    result.add(frac);
-                    values.add(val);
+        result.add(new Frac(0, 1));
+        for(int num = 1; num <= max; ++num) {
+            for(int denum = num; denum <= max; ++denum) {
+                if (gcd(num, denum) == 1) {
+                    result.add(new Frac(num, denum));
+                }
+//                Frac frac = new Frac(num, denum);
+//                if(!frac.isReductible()) {
+//                    result.add(frac);
                 }
             }
-        }
 
         Collections.sort(result, Frac.comp);
         String res = "";
